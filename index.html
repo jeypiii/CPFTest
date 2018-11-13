@@ -16,7 +16,7 @@
 	function setup(){
 	        alert("Success setup" + cpf);
 		if(cpf)
-			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["setPinMode", "digital", 7, "OUTPUT"], ["setPinMode", "digital", 8, "OUTPUT"],["setPinMode", "digital", 9, "OUTPUT"]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["setPinMode", "digital", 7, "OUTPUT"], ["setPinMode", "digital", 8, "OUTPUT"],["setPinMode", "digital", 9, "INPUT"]'); 
 			//document.getElementById("demo").innerHTML += ret + "<br>";
             //pin7 is the trigger for deployment
             //pin8 is the COUNT_AVAILABLE_PIN
@@ -24,7 +24,8 @@
 	}
 	
 	function loop() {
-        alert("CPF: " + cpf + " " + CPF.get("d8"));
+        alert("CPF: " + cpf + " Pin 8: " + cpf.get("d8") + " Pin 9: " + cpf.get("d9"));
+    	cpf.request('["digitalWrite", 9, 1]');
         setInterval(loop, 1000);
 	}
 	
