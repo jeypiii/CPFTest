@@ -26,6 +26,7 @@
 	function loop() {
 		alert("CPF: " + cpf + " Pin 8: " + cpf.get("d8") + " Pin 9: " + cpf.get("d9"));
 		cpf.request('["digitalWrite", 9, 1]');
+		alert("digitalWrite(9, HIGH) done");
 		setInterval(loop, 1000);
 	}
 	
